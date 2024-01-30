@@ -9,22 +9,20 @@
 <body>	
 	<script>
 		function secondHighest(arr) {
-			//Write your code here
-				let firstHigh = Number.MIN_VALUE;
-			let sec = arr[0];
-			for (let i = 0; i < arr.length; i++) {
-				if(arr[i] > firstHigh ){
-					firstHigh = arr[i];
-				}
-			}
-				for (let i = 0; i < arr.length; i++) {
-				    if(sec < arr[i] && arr[i] < firstHigh  ){
-				        sec = arr[i];
-				    }
-				}
-			return sec;
-			
-		}
+    let firstHigh = Number.MIN_VALUE;
+    let sec = Number.MIN_VALUE;
+
+    for (let i = 0; i < arr.length; i++) {
+        if(arr[i] > firstHigh ){
+            sec = firstHigh;
+            firstHigh = arr[i];
+        } else if (arr[i] > sec && arr[i] < firstHigh) {
+            sec = arr[i];
+        }
+    }
+
+    return sec;
+}
 
 		function Main() {
 			var n = prompt("Enter the number of elements");
